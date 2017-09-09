@@ -15,10 +15,10 @@ public class TestingMain {
             System.out.println("Error!");
         }
         Calculator calculator  = new Calculator();
-            int sum = calculator.addAToB(5,5);
-            int divide = calculator.substractAFromB(192,41);
+            int sum = calculator.addAToB(192,102);
+            int divide = calculator.substractAFromB(192,102);
             System.out.println("a + b = " + sum);
-            System.out.println("c - d = " + divide);
+            System.out.println("a - b = " + divide);
 
     }
 }
