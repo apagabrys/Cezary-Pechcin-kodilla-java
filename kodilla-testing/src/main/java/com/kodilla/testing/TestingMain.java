@@ -10,15 +10,15 @@ public class TestingMain {
         String result = simpleUser.getUsername();
 
         if (result.equals("theForumUser")) {
-            System.out.println("test OK");
+            System.out.println("User test OK");
         } else {
             System.out.println("Error!");
         }
         Calculator calculator  = new Calculator();
             int sum = calculator.addAToB(192,102);
-            int divide = calculator.substractAFromB(192,102);
+            int difference = calculator.subtractAFromB(192,102);
             System.out.println("a + b = " + sum);
-            System.out.println("a - b = " + divide);
+            System.out.println("a - b = " + difference);
 
     }
 }
