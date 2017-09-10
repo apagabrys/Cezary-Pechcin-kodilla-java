@@ -16,7 +16,7 @@ public class TestingMain {
         }
         Calculator calculator  = new Calculator();
             int sum = calculator.addAToB(192,102);
-            int difference = calculator.subtractAFromB(192,102);
+            int difference = calculator.subtractBFromA(192,102);
 
             if ((sum == 294) && (difference == 90)) {
             System.out.println("Calculator test OK");
