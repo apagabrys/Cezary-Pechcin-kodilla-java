@@ -17,8 +17,12 @@ public class TestingMain {
         Calculator calculator  = new Calculator();
             int sum = calculator.addAToB(192,102);
             int difference = calculator.subtractAFromB(192,102);
-            System.out.println("a + b = " + sum);
-            System.out.println("a - b = " + difference);
+
+            if ((sum == 294) && (difference == 90)) {
+            System.out.println("Calculator test OK");
+            } else {
+            System.out.println("Error!");
+            }
 
     }
 }
