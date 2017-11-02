@@ -27,13 +27,22 @@ public class CollectionTestSuite {
         System.out.println("Testing empty list");
         //Given
         ArrayList<Integer> numbers = new ArrayList<Integer>();
+        for (Integer number: numbers) {
+            System.out.println(number);
+        }
         //When
-        int i;
-        for (i=0; i<10; i++) {
-            numbers.add(null);
+        ArrayList<Integer> theNumbers = new ArrayList<Integer>();
+        int j;
+        for (j=2; j<10; j++) {
+            if ((j%2) == 0) {
+                theNumbers.add(j);
+            }
+        }
+        for (Integer number: theNumbers) {
+            System.out.println(number);
         }
         //Then
-
+        Assert.assertNotEquals(theNumbers, numbers);
 
     }
     @Test
@@ -41,13 +50,24 @@ public class CollectionTestSuite {
         System.out.println("Testing normal list");
         //Given
         ArrayList<Integer> numbers = new ArrayList<Integer>();
-        //When
+        OddNumbersExterminator ext = new OddNumbersExterminator();
+        ext.exterminate(numbers);
         int i;
-        for (i=0; i<10; i++) {
+        for (i=1; i<10; i++) {
             numbers.add(i);
         }
-        for (Integer theNumber: evenNumbers)
-            System.out.println(theNumber);
+        //When
+        ArrayList<Integer> theNumbers = new ArrayList<Integer>();
+        int j;
+        for (j=2; j<10; j++) {
+            if ((j%2) == 0) {
+                theNumbers.add(j);
+            }
+        }
+        for (Integer ANumber: theNumbers) {
+            System.out.println(ANumber);
+        }
         //Then
+        Assert.assertNotEquals(theNumbers, numbers);
     }
 }

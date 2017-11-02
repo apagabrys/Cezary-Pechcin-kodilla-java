@@ -11,7 +11,11 @@ public class OddNumbersExterminator {
         for(Integer number: numbers) {
             if ((number % 2) == 0) {
                 evenNumbers.add(number);
+                numbers.remove(number);
             }
+        }
+        for (Integer theNumber: evenNumbers) {
+            System.out.println(theNumber);
         }
         return evenNumbers;
     }
