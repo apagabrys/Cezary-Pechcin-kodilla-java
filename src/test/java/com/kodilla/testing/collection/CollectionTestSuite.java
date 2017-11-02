@@ -27,20 +27,14 @@ public class CollectionTestSuite {
         System.out.println("Testing empty list");
         //Given
         ArrayList<Integer> numbers = new ArrayList<Integer>();
-        for (Integer number: numbers) {
-            System.out.println(number);
+        OddNumbersExterminator ext = new OddNumbersExterminator();
+        int i;
+        for (i=1; i<10; i++) {
+            numbers.add(i);
         }
+        ext.exterminate(numbers);
         //When
         ArrayList<Integer> theNumbers = new ArrayList<Integer>();
-        int j;
-        for (j=2; j<10; j++) {
-            if ((j%2) == 0) {
-                theNumbers.add(j);
-            }
-        }
-        for (Integer number: theNumbers) {
-            System.out.println(number);
-        }
         //Then
         Assert.assertNotEquals(theNumbers, numbers);
 
@@ -51,23 +45,18 @@ public class CollectionTestSuite {
         //Given
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         OddNumbersExterminator ext = new OddNumbersExterminator();
-        ext.exterminate(numbers);
         int i;
         for (i=1; i<10; i++) {
             numbers.add(i);
         }
+        ext.exterminate(numbers);
         //When
         ArrayList<Integer> theNumbers = new ArrayList<Integer>();
         int j;
-        for (j=2; j<10; j++) {
-            if ((j%2) == 0) {
-                theNumbers.add(j);
+        for (j=1; j<10; j++) {
+            theNumbers.add(j);
             }
-        }
-        for (Integer ANumber: theNumbers) {
-            System.out.println(ANumber);
-        }
         //Then
-        Assert.assertNotEquals(theNumbers, numbers);
+        Assert.assertEquals(theNumbers, numbers);
     }
 }
