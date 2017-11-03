@@ -3,6 +3,7 @@ package com.kodilla.testing.collection;
 import com.kodilla.testing.collection.OddNumbersExterminator;
 import org.junit.*;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 public class CollectionTestSuite {
@@ -26,37 +27,36 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
         System.out.println("Testing empty list");
         //Given
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        OddNumbersExterminator ext = new OddNumbersExterminator();
-        int i;
-        for (i=1; i<10; i++) {
-            numbers.add(i);
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        ArrayList<Integer> noNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> expectedNumbers = new ArrayList<Integer>();
+        int j;
+        for (j=2; j<10; j=j+2) {
+            expectedNumbers.add(j);
         }
-        ext.exterminate(numbers);
         //When
-        ArrayList<Integer> theNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> resultNumbers = exterminator.exterminate(ArayList<Integer> noNumbers);
         //Then
-        Assert.assertNotEquals(theNumbers, numbers);
-
+        Assert.assertEquals(expectedNumbers; resultNumbers);
     }
     @Test
     public void testOddNumbersExterminatorNormalList() {
         System.out.println("Testing normal list");
         //Given
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        OddNumbersExterminator ext = new OddNumbersExterminator();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        ArrayList<Integer> allNumbers = new ArrayList<Integer>();
         int i;
         for (i=1; i<10; i++) {
-            numbers.add(i);
+            allNumbers.add(i);
         }
-        ext.exterminate(numbers);
-        //When
-        ArrayList<Integer> theNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> expectedNumbers = new ArrayList<Integer>();
         int j;
-        for (j=1; j<10; j++) {
-            theNumbers.add(j);
-            }
+        for (j=2; j<10; j=j+2) {
+            expectedNumbers.add(j);
+        }
+        //When
+        ArrayList<Integer> resultNumbers = exterminator.exterminate(ArayList<Integer> allNumbers);
         //Then
-        Assert.assertEquals(theNumbers, numbers);
+        Assert.assertEquals(expectedNumbers; resultNumbers);
     }
 }
