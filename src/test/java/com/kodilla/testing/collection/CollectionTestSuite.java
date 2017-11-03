@@ -35,9 +35,9 @@ public class CollectionTestSuite {
             expectedNumbers.add(j);
         }
         //When
-        ArrayList<Integer> resultNumbers = exterminator.exterminate(ArayList<Integer> noNumbers);
+        ArrayList<Integer> resultNumbers = exterminator.exterminate( noNumbers);
         //Then
-        Assert.assertEquals(expectedNumbers; resultNumbers);
+        Assert.assertEquals(expectedNumbers, resultNumbers);
     }
     @Test
     public void testOddNumbersExterminatorNormalList() {
@@ -55,8 +55,8 @@ public class CollectionTestSuite {
             expectedNumbers.add(j);
         }
         //When
-        ArrayList<Integer> resultNumbers = exterminator.exterminate(ArayList<Integer> allNumbers);
+        ArrayList<Integer> resultNumbers = exterminator.exterminate( allNumbers);
         //Then
-        Assert.assertEquals(expectedNumbers; resultNumbers);
+        Assert.assertEquals(expectedNumbers, resultNumbers);
     }
 }
