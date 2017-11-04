@@ -30,10 +30,6 @@ public class CollectionTestSuite {
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
         ArrayList<Integer> noNumbers = new ArrayList<Integer>();
         ArrayList<Integer> expectedNumbers = new ArrayList<Integer>();
-        int j;
-        for (j=2; j<10; j=j+2) {
-            expectedNumbers.add(j);
-        }
         //When
         ArrayList<Integer> resultNumbers = exterminator.exterminate( noNumbers);
         //Then
