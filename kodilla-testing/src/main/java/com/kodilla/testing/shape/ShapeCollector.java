@@ -9,17 +9,24 @@ public class ShapeCollector {
     public ShapeCollector(Shape shape) {
         this.shape = shape;
     }
-    public void addFigure(){
-
+    public void addFigure(Shape shape){
+        shapes.add(shape);
     }
     public boolean removeFigure(){
-        return true;
+        boolean result = false;
+        if(shapes.contains(shape)){
+            shapes.remove(shape);
+            result = true;
+        }
+        return result;
     }
-    public Square getFigure(int n){
-        return null;
+    public Shape getFigure(int n){
+        shape = shapes.get(n);
+        return shape;
     }
-    public void showFigures(){
-        this.shape.getShapeName();
+    public String showFigures(){
+       String name = shape.toString();
+       return name;
     }
     public int getShapesQuantity(){
         return 1;
