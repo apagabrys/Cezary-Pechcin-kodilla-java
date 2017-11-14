@@ -29,6 +29,7 @@ public class ShapeCollector {
        return name;
     }
     public int getShapesQuantity(){
-        return 1;
+        int quantity = shapes.size();
+        return quantity;
     }
 }
