@@ -15,32 +15,27 @@ import static org.mockito.Mockito.when;
 
 public class StatisticsCalculatorTestSuite {
     @Test
-    public void testCalculateAdvStatisticsWithMock1000Posts(){
+    public void test1000Posts(){
         //Given
-        ArrayList<ForumPost> posts = new ArrayList<ForumPost>();
-        LinkedList<ForumComment> comments = new LinkedList<ForumComment>();
-        ForumUser forumUser = new ForumUser("Tymon", "John Snow");
-        ForumUser forumUser1 = new ForumUser("Dymon", "John");
-        ForumPost thePost = new ForumPost("Hello everyone.", "Tymon");
-        ForumPost thePost1 = new ForumPost("Halko.", "Dymon");
-        for(int i=0;i<999;i++){
-            forumUser.addPost(thePost.getAuthor(), thePost.getPostBody());
-        }
-        forumUser1.addPost(thePost1.getAuthor(), thePost1.getPostBody());
         Statistics statisticsMock = mock (Statistics.class);
         List<String> users = new ArrayList<String>();
-        for (int j=0; j<99; j++) {
-            users.add(forumUser.toString());
-            users.add(forumUser1.toString());
-        }
+        users.add("Roko");
+        users.add("Czoko");
+        users.add("Moko");
+
+        int postsCounter = 1000;
+        int commentsCounter = 0;
         when(statisticsMock.userNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(comments.size());
-        when(statisticsMock.postsCount()).thenReturn(posts.size());
+        when(statisticsMock.commentsCount()).thenReturn(commentsCounter);
+        when(statisticsMock.postsCount()).thenReturn(postsCounter);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
 
         //When
-        int quantityOfUsers = statisticsCalculator.calculateAdvStatistics();
+        statisticsCalculator.calculateAdvStatistics();
         //Then
-        Assert.assertEquals(1000, quantityOfUsers);
+        Assert.assertEquals(333.33, statisticsCalculator.getAveragePostPerUser(), 0.01);
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageCommentPerUser(), 0.01);
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageCommentPerPost(), 0.01);
+
     }
 }
