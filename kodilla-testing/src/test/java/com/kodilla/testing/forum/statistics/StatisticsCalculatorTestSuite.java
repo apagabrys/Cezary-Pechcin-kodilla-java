@@ -1,13 +1,9 @@
 package com.kodilla.testing.forum.statistics;
 
-import com.kodilla.testing.forum.ForumUser;
-import com.kodilla.testing.forum.ForumComment;
-import com.kodilla.testing.forum.ForumPost;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
@@ -28,14 +24,13 @@ public class StatisticsCalculatorTestSuite {
         when(statisticsMock.userNames()).thenReturn(users);
         when(statisticsMock.commentsCount()).thenReturn(commentsCounter);
         when(statisticsMock.postsCount()).thenReturn(postsCounter);
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator(statisticsMock);
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
 
         //When
-        statisticsCalculator.calculateAdvStatistics();
+        statisticsCalculator.calculateAdvStatistics(statisticsMock);
         //Then
         Assert.assertEquals(333.33, statisticsCalculator.getAveragePostPerUser(), 0.01);
         Assert.assertEquals(0.0, statisticsCalculator.getAverageCommentPerUser(), 0.01);
         Assert.assertEquals(0.0, statisticsCalculator.getAverageCommentPerPost(), 0.01);
-
     }
 }

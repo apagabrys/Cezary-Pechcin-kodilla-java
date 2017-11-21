@@ -2,23 +2,12 @@ package com.kodilla.testing.forum.statistics;
 
 
 public class StatisticsCalculator {
-    private Statistics statistics;
     private int usersQuantity;
     private int postsQuantity;
     private int commentsQuantity;
-    private int averagePostPerUser;
-    private int averageCommentPerUser;
-    private int averageCommentPerPost;
-
-    public StatisticsCalculator(int usersQuantity, int postsQuantity, int commentsQuantity, int averagePostPerUser, int averageCommentPerUser, int averageCommentPerPost) {
-        this.statistics = statistics;
-        this.usersQuantity = usersQuantity;
-        this.postsQuantity = postsQuantity;
-        this.commentsQuantity = commentsQuantity;
-        this.averagePostPerUser = averagePostPerUser;
-        this.averageCommentPerUser = averageCommentPerUser;
-        this.averageCommentPerPost = averageCommentPerPost;
-    }
+    private double averagePostPerUser;
+    private double averageCommentPerUser;
+    private double averageCommentPerPost;
 
     public int getUsersQuantity() {
         return usersQuantity;
@@ -32,28 +21,36 @@ public class StatisticsCalculator {
         return commentsQuantity;
     }
 
-    public int getAveragePostPerUser() {
+    public double getAveragePostPerUser() {
         return averagePostPerUser;
     }
 
-    public int getAverageCommentPerUser() {
+    public double getAverageCommentPerUser() {
         return averageCommentPerUser;
     }
 
-    public int getAverageCommentPerPost() {
+    public double getAverageCommentPerPost() {
         return averageCommentPerPost;
     }
 
 
 
-    public int calculateAdvStatistics(Statistics statistics){
-        int usersQuantity = statistics.userNames().size();
-        int postsQuantity = statistics.postsCount();
-        int commentsQuantity = statistics.commentsCount();
-        int averagePostPerUser = postsQuantity/usersQuantity;
-        int averageCommentPerUser = commentsQuantity/usersQuantity;
-        int averageCommentPerPost = commentsQuantity/postsQuantity;
-
+    public void calculateAdvStatistics(Statistics statistics){
+        usersQuantity = statistics.userNames().size();
+        postsQuantity = statistics.postsCount();
+        commentsQuantity = statistics.commentsCount();
+        if(statistics.userNames().size()!= 0) {
+            averagePostPerUser = (double)postsQuantity / (double)usersQuantity;
+            averageCommentPerUser = (double)commentsQuantity / (double)usersQuantity;
+        }else{
+            averagePostPerUser = 0;
+            averageCommentPerUser = 0;
+        }
+        if(statistics.postsCount()!=0) {
+            averageCommentPerPost = (double)commentsQuantity / (double)postsQuantity;
+        }else{
+            averageCommentPerPost = 0;
+        }
     }
     public void showStatistics(){
         System.out.println("Ilość użytkowników to " + usersQuantity + "/n Ilość postów to " + postsQuantity + "/n Ilość komentarzy to " +
